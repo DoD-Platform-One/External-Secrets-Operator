@@ -4,6 +4,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [unreleased]
+
+### Changed
+
+- updated charts/templates/bigbang/external-secrets.yaml to allow multiple secrets to be built into one kubernetes secret object
+
 ## [0.16.2-bb.1] - 2025-05-20
 
 ### Changed
