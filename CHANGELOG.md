@@ -4,6 +4,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [0.17.0-bb.2] - 2025-06-23
+
+### Changed
+
+- Updated changelog tag to v0.17.0
+
 ## [0.17.0-bb.1] - 2025-06-16
 
 ### Changed
@@ -16,7 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 - Updated helm-chart-0.17.0
-- Updated registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets (source) v0.16.1 -> v0.16.2
+- Updated registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets (source) v0.16.1 -> v0.17.0
 
 ## [0.16.2-bb.1] - 2025-05-20
 
