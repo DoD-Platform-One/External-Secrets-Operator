@@ -147,26 +147,34 @@ clusterSecretStoreConfiguration:
           secretAccessKey: ""   
 
 externalSecretsConfiguration:
-  enabled: false
+  enabled: false  # -- Enable or disable ExternalSecrets generation
+
   secretList:
-    - name: secret-1
-      namespace: ""
+    - name: secret-1  # -- Name of the ExternalSecret resource (must be unique per namespace)
+      namespace: ""   # -- Kubernetes namespace to create the ExternalSecret in
       secrets:
-        targetName: "" # -- target/destination secret name
-          # -- target.creationPolicy default is Owner
-        targetPolicy: ""
-        # -- This name allows reference by other objects.
+        targetName: ""   # -- Name of the resulting Kubernetes Secret created by ExternalSecret
+        targetPolicy: "" # -- Target creation policy: "Owner", "Merge", or "None". Default is "Owner"
+
+        # -- Use this simplified block if only pulling a single key/property from the external secret
         secretKeyName:
-          # -- Specify key here
-          key: ""
-          # -- Key version
-          version: ""
-          # -- Specify the property of the secret, i.e. username, password
-          property: ""
-          # -- Optional" metadataPolicy for ExternalSecret, i.e. Fetch
-          metadataPolicy: ""
+          key: ""           # -- External secret key path
+          version: ""       # -- (Optional) Version of the secret
+          property: ""      # -- Specific property to extract from the secret (e.g., "username", "password")
+          metadataPolicy: "" # -- (Optional) Metadata policy, e.g., "Fetch", to control sync behavior
 
-
+        # -- Optional: Use this block if retrieving multiple key-value pairs from the same external secret
+        data:
+          - secretKey: ""   # -- Key name to store in the resulting Kubernetes Secret
+            remoteRef:
+              key: ""       # -- External secret key path
+              property: ""  # -- Specific property to extract from the secret (e.g., "username", "password")
+              version: ""   # -- (Optional) Version of the secret
+          - secretKey: ""   # -- Another secret key to extract and store
+            remoteRef:
+              key: ""       # -- External secret key path (e.g., AWS Secrets Manager or SSM parameter path)
+              property: ""  # -- Property to extract from the remote secret
+              version: ""   # -- (Optional) Version of the secret
 
 rbac:
 # -- Specifies whether role and rolebinding resources should be created.
