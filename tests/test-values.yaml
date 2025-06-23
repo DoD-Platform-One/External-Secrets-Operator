@@ -30,3 +30,5 @@ kyverno:
   values:
     bbtests:
       enabled: false
+bbctl:
+  enabled: false      
