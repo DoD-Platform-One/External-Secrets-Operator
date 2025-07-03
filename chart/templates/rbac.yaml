@@ -80,6 +80,7 @@ rules:
     - "vaultdynamicsecrets"
     - "webhooks"
     - "grafanas"
+    - "mfas"
     verbs:
     - "get"
     - "list"
@@ -182,6 +183,7 @@ rules:
     - "webhooks"
     - "grafanas"
     - "generatorstates"
+    - "mfas"
     verbs:
       - "get"
       - "watch"
@@ -233,6 +235,7 @@ rules:
     - "webhooks"
     - "grafanas"
     - "generatorstates"
+    - "mfas"
     verbs:
       - "create"
       - "delete"
