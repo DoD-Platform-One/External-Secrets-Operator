@@ -3,6 +3,12 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [0.18.2-bb.0] - 2025-07-08
+
+### Changed
+- updated gluon 0.6.2 -> 0.6.3
+- updated registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets (source) v0.18.0 -> v0.18.2
+- updated helm chart to 0.18.2
 
 ## [0.18.0-bb.0] - 2025-06-20
 

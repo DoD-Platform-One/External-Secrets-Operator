@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # external-secrets
 
-![Version: 0.18.0-bb.0](https://img.shields.io/badge/Version-0.18.0--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.18.0](https://img.shields.io/badge/AppVersion-v0.18.0-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
+![Version: 0.18.2-bb.0](https://img.shields.io/badge/Version-0.18.2--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.18.2](https://img.shields.io/badge/AppVersion-v0.18.2-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
 
 External secrets management for Kubernetes
 
@@ -61,7 +61,7 @@ helm install external-secrets chart/
 | revisionHistoryLimit | int | `10` | Specifies the amount of historic ReplicaSets k8s should keep (see https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#clean-up-policy) |
 | image.repository | string | `"registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.tag | string | `"v0.18.0"` | The image tag to use. The default is the chart appVersion. |
+| image.tag | string | `"v0.18.2"` | The image tag to use. The default is the chart appVersion. |
 | image.flavour | string | `""` | The flavour of tag you want to use There are different image flavours available, like distroless and ubi. Please see GitHub release notes for image tags for these flavors. By default, the distroless image is used. |
 | installCRDs | bool | `false` | If set, install and upgrade CRDs through helm chart. |
 | crds.createClusterExternalSecret | bool | `true` | If true, create CRDs for Cluster External Secret. |
@@ -178,7 +178,7 @@ helm install external-secrets chart/
 | webhook.hostNetwork | bool | `false` | Specifies if webhook pod should use hostNetwork or not. |
 | webhook.image.repository | string | `"registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets"` |  |
 | webhook.image.pullPolicy | string | `"IfNotPresent"` |  |
-| webhook.image.tag | string | `"v0.18.0"` | The image tag to use. The default is the chart appVersion. |
+| webhook.image.tag | string | `"v0.18.2"` | The image tag to use. The default is the chart appVersion. |
 | webhook.image.flavour | string | `""` | The flavour of tag you want to use |
 | webhook.imagePullSecrets[0].name | string | `"private-registry"` |  |
 | webhook.nameOverride | string | `""` |  |
@@ -237,7 +237,7 @@ helm install external-secrets chart/
 | certController.revisionHistoryLimit | int | `10` | Specifies the amount of historic ReplicaSets k8s should keep (see https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#clean-up-policy) |
 | certController.image.repository | string | `"registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets"` |  |
 | certController.image.pullPolicy | string | `"IfNotPresent"` |  |
-| certController.image.tag | string | `"v0.18.0"` |  |
+| certController.image.tag | string | `"v0.18.2"` |  |
 | certController.image.flavour | string | `""` |  |
 | certController.imagePullSecrets[0].name | string | `"private-registry"` |  |
 | certController.nameOverride | string | `""` |  |
