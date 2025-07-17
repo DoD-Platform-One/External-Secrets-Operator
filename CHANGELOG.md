@@ -18,26 +18,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - updated the external secrets image to v0.18.0
 - Updated registry1.dso.mil/ironbank/opensource/kubernetes/kubectl (source) v1.32.5 -> v1.32.6
 
-## [0.17.0-bb.2] - 2025-06-23
-
-### Changed
-
-- Updated changelog tag to v0.17.0
-
-## [0.17.0-bb.1] - 2025-06-16
-
-### Changed
-
-- Updated gluon from 0.5.19 -> 0.6.2
-- Updated registry1.dso.mil/ironbank/opensource/kubernetes/kubectl (source) v1.32.4 -> v1.32.5
-
-## [0.17.0-bb.0] - 2025-05-28
-
-### Changed
-
-- Updated helm-chart-0.17.0
-- Updated registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets (source) v0.16.1 -> v0.17.0
-
 ## [0.16.2-bb.1] - 2025-05-20
 
 ### Changed
