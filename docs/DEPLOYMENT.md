@@ -92,8 +92,6 @@ addons:
               service: SecretsManager 
               # Specify AWS region, i.e. us-gov-west-1 (default) ##
               region: "us-gov-west-1"
-              # Frequency to check for updates ##
-              refreshInterval: "1m"
               auth:
                 # Specify authType is required: identity, accesskey or serviceaccount ##
                 authType: "accesskey"  
@@ -135,8 +133,6 @@ addons:
               serviceName: ""
               # Specify AWS region, i.e. us-gov-west-1, default is us-gov-west-1
               region: us-gov-west-1
-              # Secret pull refresh interval.  Default is 1m.
-              refreshInterval: "1m"
               auth:
                 # Specify which authentication to use: identity, accesskey, serviceaccount
                 authType: "serviceaccount"
@@ -172,8 +168,6 @@ addons:
               serviceName: ""
               # Specify AWS region, i.e. us-gov-west-1, default is us-gov-west-1
               region: us-gov-west-1
-              # Secret pull refresh interval.  Default is 1m.
-              refreshInterval: "1m"
               auth:
                 # Specify which authentication to use: identity, accesskey, serviceaccount
                 authType: "identity"

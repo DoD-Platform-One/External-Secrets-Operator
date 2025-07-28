@@ -5,7 +5,7 @@ metadata:
   namespace: {{ template "external-secrets.namespace" . }}
   labels:
     {{- include "external-secrets.labels" . | nindent 4 }}
-  {{- with .Values.deploymentAnnotations }}
+  {{- with .Values.upstream.deploymentAnnotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
