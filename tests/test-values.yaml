@@ -31,4 +31,4 @@ kyverno:
     bbtests:
       enabled: false
 bbctl:
-  enabled: false      
+  enabled: false
