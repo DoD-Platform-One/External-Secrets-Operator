@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # external-secrets
 
-![Version: 0.18.2-bb.2](https://img.shields.io/badge/Version-0.18.2--bb.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.18.2](https://img.shields.io/badge/AppVersion-v0.18.2-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
+![Version: 0.19.0-bb.0](https://img.shields.io/badge/Version-0.19.0--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.19.0](https://img.shields.io/badge/AppVersion-v0.19.0-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
 
 External secrets management for Kubernetes
 
@@ -150,7 +150,7 @@ helm install external-secrets chart/
 | upstream.resources.limits.memory | string | `"256Mi"` |  |
 | upstream.image.repository | string | `"registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets"` |  |
 | upstream.image.pullPolicy | string | `"IfNotPresent"` |  |
-| upstream.image.tag | string | `"v0.18.2"` | The image tag to use. The default is the chart appVersion. |
+| upstream.image.tag | string | `"v0.19.0"` | The image tag to use. The default is the chart appVersion. |
 | upstream.imagePullSecrets[0].name | string | `"private-registry"` |  |
 
 ## Contributing
