@@ -75,7 +75,7 @@ bbtests:
 waitJob:
   enabled: true  
   scripts:
-    image: registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.32.7
+    image: registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.32.8
   permissions:
     apiGroups:
       - external-secrets.io
@@ -195,7 +195,7 @@ upstream:
     repository: registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets
     pullPolicy: IfNotPresent
     # -- The image tag to use. The default is the chart appVersion.
-    tag: "v0.19.0"
+    tag: "v0.19.2"
   
   imagePullSecrets:
   - name: private-registry
