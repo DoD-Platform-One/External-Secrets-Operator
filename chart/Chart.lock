@@ -1,9 +1,9 @@
 dependencies:
 - name: gluon
   repository: oci://registry1.dso.mil/bigbang
-  version: 0.8.4
+  version: 0.9.0
 - name: external-secrets
   repository: https://charts.external-secrets.io
   version: 0.19.2
-digest: sha256:75a908e4eac5a4881065b4a5ed72f67c041b82d2372910887673050a9df6f6ee
-generated: "2025-08-27T09:02:04.1823823-04:00"
+digest: sha256:3ed1f4a32d8ff569675a875d438656f2f006ba2d4cb28d79375e294377d63c71
+generated: "2025-09-09T06:10:36.549860194Z"

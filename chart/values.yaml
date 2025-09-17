@@ -67,7 +67,7 @@ bbtests:
   secretstore:
     name: external-secrets-test-store
   serviceaccount:
-    name: external-secrets-script-sa
+    name: external-secrets-external-secrets-script-sa
   secrets:
     testsecret:
       value: "this is a magic value"
