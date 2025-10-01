@@ -59,17 +59,16 @@ export KUBECONFIG=~/.kube/Sam.Sarnowski-dev-config
 5. Deploy flux to your cluster:
 ```
 "${BIGBANG_REPO_DIR}/scripts/install_flux.sh -u ${REGISTRY_USERNAME} -p ${REGISTRY_PASSWORD}"
-
-## Deploy Bigbang External-secrets
-
 ```
-  helm upgrade -i bigbang ${BIGBANG_REPO_DIR}/chart/ -n bigbang --create-namespace \
-  --set registryCredentials.username=${REGISTRY_USERNAME} --set registryCredentials.password=${REGISTRY_PASSWORD} \
-  -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/tests/test-values.yaml \
-  -f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/chart/ingress-certs.yaml \
-  -f docs/dev-overrides/minimal.yaml \
-  -f docs/dev-overrides/external-secrets-testing.yaml
-  ```
+## Deploy Bigbang External-secrets
+```
+helm upgrade -i bigbang ${BIGBANG_REPO_DIR}/chart/ -n bigbang --create-namespace \
+--set registryCredentials.username=${REGISTRY_USERNAME} --set registryCredentials.password=${REGISTRY_PASSWORD} \
+-f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/tests/test-values.yaml \
+-f https://repo1.dso.mil/big-bang/bigbang/-/raw/master/chart/ingress-certs.yaml \
+-f docs/dev-overrides/minimal.yaml \
+-f docs/dev-overrides/external-secrets-testing.yaml
+```
 
 ## Big Bang Integration Testing
 
