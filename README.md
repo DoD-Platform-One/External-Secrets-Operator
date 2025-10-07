@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # external-secrets
 
-![Version: 0.20.1-bb.1](https://img.shields.io/badge/Version-0.20.1--bb.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.20.1](https://img.shields.io/badge/AppVersion-v0.20.1-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
+![Version: 0.20.2-bb.0](https://img.shields.io/badge/Version-0.20.2--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.20.2](https://img.shields.io/badge/AppVersion-v0.20.2-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
 
 External secrets management for Kubernetes
 
@@ -51,7 +51,6 @@ helm install external-secrets chart/
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | domain | string | `"bigbang.dev"` |  |
-| namespaceOverride | string | `"external-secrets"` |  |
 | rbac.create | bool | `true` |  |
 | rbac.servicebindings.create | bool | `true` |  |
 | rbac.aggregateToView | bool | `true` |  |
@@ -78,7 +77,7 @@ helm install external-secrets chart/
 | bbtests.namespace | string | `"external-secrets"` |  |
 | bbtests.scripts.image | string | `"registry1.dso.mil/ironbank/big-bang/base:2.1.0"` |  |
 | bbtests.secretstore.name | string | `"external-secrets-test-store"` |  |
-| bbtests.serviceaccount.name | string | `"external-secrets-script-sa"` |  |
+| bbtests.serviceaccount.name | string | `"external-secrets-external-secrets-script-sa"` |  |
 | bbtests.secrets.testsecret.value | string | `"this is a magic value"` |  |
 | waitJob.enabled | bool | `true` |  |
 | waitJob.scripts.image | string | `"registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.33.5"` |  |
@@ -131,6 +130,7 @@ helm install external-secrets chart/
 | externalSecretsConfiguration.secretList[0].secrets.secretKeyName.metadataPolicy | string | `""` | Optional" metadataPolicy for ExternalSecret, i.e. Fetch |
 | upstream.nameOverride | string | `"external-secrets"` |  |
 | upstream.fullnameOverride | string | `"external-secrets"` |  |
+| upstream.namespaceOverride | string | `"external-secrets"` |  |
 | upstream.installCRDs | bool | `false` |  |
 | upstream.deploymentAnnotations | object | `{}` |  |
 | upstream.webhook.create | bool | `false` |  |
@@ -150,7 +150,7 @@ helm install external-secrets chart/
 | upstream.resources.limits.memory | string | `"256Mi"` |  |
 | upstream.image.repository | string | `"registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets"` |  |
 | upstream.image.pullPolicy | string | `"IfNotPresent"` |  |
-| upstream.image.tag | string | `"v0.20.1"` | The image tag to use. The default is the chart appVersion. |
+| upstream.image.tag | string | `"v0.20.2"` | The image tag to use. The default is the chart appVersion. |
 | upstream.imagePullSecrets[0].name | string | `"private-registry"` |  |
 
 ## Contributing
