@@ -2,26 +2,40 @@
 
 The below details the steps required to update to a new version of the External Secrets package.
 
-1. Review the [upstream release notes](https://github.com/external-secrets/external-secrets/releases) for the update you are going to, as well as any versions skipped over between the last BB release and this one. Note any breaking changes and new features.
+1. To update external-secrets helm chart, navigate to [upstream](https://github.com/external-secrets/external-secrets/blob/main) and find the latest tag. Next, update the dependency within chart/Chart.yaml and run helm dependencies update ./chart to pull in the new chart. Make sure the old helm chart has been removed and the new one has been added within chart/charts.
 
-2. Use `kpt` to pull the upstream chart via the latest tag that corresponds to the application version. From the root of the repo run `kpt pkg update chart@helm-chart-0.9.18 --strategy alpha-git-patch` replacing `helm-chart-0.9.18` with the version tag you got in step 1. Also update the custom resource definitions using the same chart version `kpt pkg update chart/crds@helm-chart-0.9.18 --strategy alpha-git-patch`.
+2. Update version references for the Chart. `version` should be `<version>-bb.x` (ex: `0.30.1-bb.x`) and `appVersion` should be `<version>` (ex: `0.30.1`). Also validate that the BB annotation for external-secrets is updated.
 
-3. Based on the upstream changelog review from earlier, make any changes required to resolve breaking changes and reconcile the Big Bang modifications.
+3. Review the [upstream release notes](https://github.com/external-secrets/external-secrets/releases) for the update you are going to, as well as any versions skipped over between the last BB release and this one. Note any breaking changes and new features.
 
-4. Modify the `version` in `Chart.yaml`. Also modify the `appVersion` and the `bigbang.dev/applicationVersions` to the new upstream version of External Secrets. 
+4. Based on the upstream changelog review from earlier, make any changes required to resolve breaking changes and reconcile the Big Bang modifications.
 
-5. Update helm dependencies to latest library versions.
+5. Modify the `version` in `Chart.yaml`. Also modify the `appVersion` and the `bigbang.dev/applicationVersions` to the new upstream version of External Secrets. 
+
+   ```
+    dependencies:
+    - name: gluon
+      version: "0.9.2"
+      repository: "oci://registry1.dso.mil/bigbang"
+    - name: external-secrets
+      version: "0.20.1"
+      repository: https://charts.external-secrets.io
+      alias: upstream"
+   ```   
+  
+
+6. Update helm dependencies to latest library versions.
     ```
     helm dependency update ./chart
     ```
 
-6. Update `CHANGELOG.md` adding an entry for the new version and noting all changes (at minimum should include `Updated External Secrets Operator to x.x.x`).
+7. Update `CHANGELOG.md` adding an entry for the new version and noting all changes (at minimum should include `Updated External Secrets Operator to x.x.x`).
 
-7. Generate the `README.md` updates by following the [guide in gluon](https://repo1.dso.mil/platform-one/big-bang/apps/library-charts/gluon/-/blob/master/docs/bb-package-readme.md).
+8. Generate the `README.md` updates by following the [guide in gluon](https://repo1.dso.mil/platform-one/big-bang/apps/library-charts/gluon/-/blob/master/docs/bb-package-readme.md).
 
-8. Open an MR in "Draft" status and validate that CI passes. This will perform a number of smoke tests against the package, but it is good to manually deploy to test some things that CI doesn't. Follow the steps below for manual testing.
+9. Open an MR in "Draft" status and validate that CI passes. This will perform a number of smoke tests against the package, but it is good to manually deploy to test some things that CI doesn't. Follow the steps below for manual testing.
 
-9. Once all manual testing is complete take your MR out of "Draft" status and add the review label.
+10. Once all manual testing is complete take your MR out of "Draft" status and add the review label.
 
 # How to test the upgrade
 

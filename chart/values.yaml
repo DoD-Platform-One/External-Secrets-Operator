@@ -151,6 +151,9 @@ externalSecretsConfiguration:
           property: ""
           # -- Optional" metadataPolicy for ExternalSecret, i.e. Fetch
           metadataPolicy: ""
+          
+# -- Values to pass to [the upstream external-secrets chart](https://github.com/external-secrets/external-secrets/blob/main/deploy/charts/external-secrets/values.yaml)
+# @default -- Upstream chart values          
 
 upstream:
   
