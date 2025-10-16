@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # external-secrets
 
-![Version: 0.20.2-bb.0](https://img.shields.io/badge/Version-0.20.2--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.20.2](https://img.shields.io/badge/AppVersion-v0.20.2-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
+![Version: 0.20.2-bb.1](https://img.shields.io/badge/Version-0.20.2--bb.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.20.2](https://img.shields.io/badge/AppVersion-v0.20.2-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
 
 External secrets management for Kubernetes
 
@@ -22,8 +22,7 @@ annotations:
 
 ## Learn More
 
-- [Application Overview](docs/overview.md)
-- [Other Documentation](docs/)
+- [Documentation](docs/)
 
 ## Pre-Requisites
 
@@ -128,30 +127,8 @@ helm install external-secrets chart/
 | externalSecretsConfiguration.secretList[0].secrets.secretKeyName.version | string | `""` | Key version |
 | externalSecretsConfiguration.secretList[0].secrets.secretKeyName.property | string | `""` | Specify the property of the secret, i.e. username, password |
 | externalSecretsConfiguration.secretList[0].secrets.secretKeyName.metadataPolicy | string | `""` | Optional" metadataPolicy for ExternalSecret, i.e. Fetch |
-| upstream.nameOverride | string | `"external-secrets"` |  |
-| upstream.fullnameOverride | string | `"external-secrets"` |  |
-| upstream.namespaceOverride | string | `"external-secrets"` |  |
-| upstream.installCRDs | bool | `false` |  |
-| upstream.deploymentAnnotations | object | `{}` |  |
-| upstream.webhook.create | bool | `false` |  |
-| upstream.rbac.create | bool | `false` |  |
-| upstream.certController.create | bool | `false` |  |
-| upstream.securityContext.allowPrivilegeEscalation | bool | `false` |  |
-| upstream.securityContext.capabilities.drop[0] | string | `"ALL"` |  |
-| upstream.securityContext.enabled | bool | `true` |  |
-| upstream.securityContext.readOnlyRootFilesystem | bool | `true` |  |
-| upstream.securityContext.runAsNonRoot | bool | `true` |  |
-| upstream.securityContext.runAsUser | int | `1000` |  |
-| upstream.securityContext.runAsGroup | int | `1000` |  |
-| upstream.securityContext.seccompProfile.type | string | `"RuntimeDefault"` |  |
-| upstream.resources.requests.memory | string | `"256Mi"` |  |
-| upstream.resources.requests.cpu | string | `"100m"` |  |
-| upstream.resources.limits.cpu | string | `"100m"` |  |
-| upstream.resources.limits.memory | string | `"256Mi"` |  |
-| upstream.image.repository | string | `"registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets"` |  |
-| upstream.image.pullPolicy | string | `"IfNotPresent"` |  |
+| upstream | object | Upstream chart values           | Values to pass to [the upstream external-secrets chart](https://github.com/external-secrets/external-secrets/blob/main/deploy/charts/external-secrets/values.yaml) |
 | upstream.image.tag | string | `"v0.20.2"` | The image tag to use. The default is the chart appVersion. |
-| upstream.imagePullSecrets[0].name | string | `"private-registry"` |  |
 
 ## Contributing
 

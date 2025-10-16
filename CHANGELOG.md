@@ -3,22 +3,28 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+## [0.20.2-bb.1] - 2025-10-15
+
+### Changed
+
+- Set the namespace value to accessKeyIDSecretRef/secretAccessKeySecretRef per spec
+
 ## [0.20.2-bb.0] - 2025-10-7
 
-### Updated
+### Changed
 
 - Updated registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets (source) 0.20.1 -> 0.20.2
 
 ## [0.20.1-bb.1] - 2025-10-1
 
-### Updated
+### Changed
 
 - Updated gluon 0.9.1 -> 0.9.2
 - Updated registry1.dso.mil/ironbank/opensource/kubernetes/kubectl (source) v1.32.9 -> v1.33.5
 
 ## [0.20.1-bb.0] - 2025-09-25
 
-### Updated
+### Changed
 
 - Updated gluon 0.9.0 -> 0.9.1
 - Updated registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets (source) minor 0.19.2 -> 0.20.1
