@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # external-secrets
 
-![Version: 0.20.3-bb.0](https://img.shields.io/badge/Version-0.20.3--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.20.3](https://img.shields.io/badge/AppVersion-v0.20.3-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
+![Version: 0.20.3-bb.1](https://img.shields.io/badge/Version-0.20.3--bb.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.20.3](https://img.shields.io/badge/AppVersion-v0.20.3-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
 
 External secrets management for Kubernetes
 
@@ -80,7 +80,7 @@ helm install external-secrets chart/
 | bbtests.serviceaccount.name | string | `"external-secrets-external-secrets-script-sa"` |  |
 | bbtests.secrets.testsecret.value | string | `"this is a magic value"` |  |
 | waitJob.enabled | bool | `true` |  |
-| waitJob.scripts.image | string | `"registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.33.5"` |  |
+| waitJob.image | string | `"registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.33"` |  |
 | waitJob.permissions.apiGroups[0] | string | `"external-secrets.io"` |  |
 | waitJob.permissions.apiGroups[1] | string | `"generators.external-secrets.io"` |  |
 | waitJob.permissions.apiGroups[2] | string | `""` |  |

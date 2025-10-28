@@ -2,7 +2,7 @@ apiVersion: v2
 name: external-secrets
 description: External secrets management for Kubernetes
 type: application
-version: "0.20.3-bb.0"
+version: "0.20.3-bb.1"
 appVersion: "v0.20.3"
 kubeVersion: ">= 1.19.0-0"
 keywords:
@@ -29,6 +29,6 @@ annotations:
     - name: external-secrets
       image: registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets:v0.20.3
     - name: kubectl
-      image: registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.33.5
+      image: registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.33
     - name: kubectl-gluon
-      image: registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.33.5
+      image: registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.33
