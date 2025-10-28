@@ -4,6 +4,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [0.20.3-bb.1] - 2025-10-22
+
+### Updated
+
+- Updated waitJob values and format
+
 ## [0.20.3-bb.0] - 2025-10-20
 
 ### Updated

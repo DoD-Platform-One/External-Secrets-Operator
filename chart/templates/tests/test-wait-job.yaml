@@ -13,12 +13,12 @@ metadata:
 spec:
   template:
     spec:
-      containers: 
+      containers:
         - name: wait-job
-          image: {{ .Values.waitJob.scripts.image | quote }} 
+          image: {{ .Values.waitJob.image | quote }}
           envFrom:
             - configMapRef:
-                name: {{ include "external-secrets.fullname" . }}-env-var                  
+                name: {{ include "external-secrets.fullname" . }}-env-var
 {{- end }}
 ---
 {{ include "gluon.wait.wait-job-sa.overrides" (list . "external-secrets-wait.wait-job-sa") }}

@@ -73,9 +73,8 @@ bbtests:
       value: "this is a magic value"
 
 waitJob:
-  enabled: true  
-  scripts:
-    image: registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.33.5
+  enabled: true
+  image: registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.33
   permissions:
     apiGroups:
       - external-secrets.io
