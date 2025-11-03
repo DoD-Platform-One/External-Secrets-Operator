@@ -10,15 +10,6 @@ metadata:
 metadata:
   labels:
     {{- include "external-secrets.labels" . | nindent 4 }}
-spec:
-  template:
-    spec:
-      containers:
-        - name: wait-job
-          image: {{ .Values.waitJob.image | quote }}
-          envFrom:
-            - configMapRef:
-                name: {{ include "external-secrets.fullname" . }}-env-var
 {{- end }}
 ---
 {{ include "gluon.wait.wait-job-sa.overrides" (list . "external-secrets-wait.wait-job-sa") }}
