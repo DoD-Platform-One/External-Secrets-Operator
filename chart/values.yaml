@@ -196,7 +196,7 @@ upstream:
     repository: registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets
     pullPolicy: IfNotPresent
     # -- The image tag to use. The default is the chart appVersion.
-    tag: "v0.20.3"
+    tag: "v0.20.4"
   
   imagePullSecrets:
   - name: private-registry
