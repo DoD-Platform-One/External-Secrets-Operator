@@ -4,6 +4,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [0.20.4-bb.0] - 2025-11-04
+
+### Updated
+
+- Updated registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets v0.20.3 -> v0.20.4
+- Updated gluon 0.9.5 -> 0.9.6
+
 ## [0.20.3-bb.2] - 2025-10-30
 
 ### Updated
