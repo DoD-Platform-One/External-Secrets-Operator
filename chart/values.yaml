@@ -109,8 +109,8 @@ clusterSecretStoreConfiguration:
   clusterSecretStoreList:
     - name: ""
       namespace: ""
-      labels: ""
-      annotations: ""
+      # labels: ""
+      # annotations: ""
       # -- define types of authentication: ##
       source: 
         # -- AWS secrets manager only - other services can be added later ##
@@ -130,25 +130,35 @@ clusterSecretStoreConfiguration:
           secretAccessKey: ""
 
 externalSecretsConfiguration:
-  enabled: false
+  enabled: false  # -- Enable or disable ExternalSecrets generation
+  refreshInterval: "1m"
   secretList:
-    - name: ""
-      namespace: ""
-      refreshInterval: "1m"
+    - name: ""  # -- Name of the ExternalSecret resource (must be unique per namespace)
+      namespace: ""   # -- Kubernetes namespace to create the ExternalSecret in
       secrets:
-        targetName: "" # -- target/destination secret name
-          # -- target.creationPolicy default is Owner
-        targetPolicy: "Owner"
-        # -- This name allows reference by other objects.
+        targetName: ""   # -- Name of the resulting Kubernetes Secret created by ExternalSecret
+        targetPolicy: "Owner" # -- Target creation policy: "Owner", "Merge", or "None". Default is "Owner"
+
+        # -- Use this simplified block if only pulling a single key/property from the external secret
         secretKeyName:
-          # -- Specify key here
-          key: ""
-          # -- Key version
-          version: ""
-          # -- Specify the property of the secret, i.e. username, password
-          property: ""
-          # -- Optional" metadataPolicy for ExternalSecret, i.e. Fetch
-          metadataPolicy: ""
+          key: ""      # -- External secret key path
+          version: ""       # -- (Optional) Version of the secret
+          property: ""   # -- Specific property to extract from the secret (e.g., "username", "password")
+          metadataPolicy: "" # -- (Optional) Metadata policy, e.g., "Fetch", to control sync behavior
+
+        # # -- Optional: Use this block if retrieving multiple key-value pairs from the same external secret
+        # data:
+        #   - secretKey: roger   # -- Key name to store in the resulting Kubernetes Secret
+        #     remoteRef:  
+        #       key: team-list      # -- External secret key path
+        #       property: name-1 # -- Specific property to extract from the secret (e.g., "username", "password")
+        #       version: ""   # -- (Optional) Version of the secret
+              
+        #   - secretKey: engineers  # -- Another secret key to extract and store
+        #     remoteRef:  
+        #       key: team-list       # -- External secret key path (e.g., AWS Secrets Manager or SSM parameter path)
+        #       property: key-3 # -- Property to extract from the remote secret
+        #       version: ""   # -- (Optional) Version of the secret
           
 # -- Values to pass to [the upstream external-secrets chart](https://github.com/external-secrets/external-secrets/blob/main/deploy/charts/external-secrets/values.yaml)
 # @default -- Upstream chart values          
