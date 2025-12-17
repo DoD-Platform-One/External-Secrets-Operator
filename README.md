@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # external-secrets
 
-![Version: 0.20.4-bb.0](https://img.shields.io/badge/Version-0.20.4--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.20.4](https://img.shields.io/badge/AppVersion-v0.20.4-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
+![Version: 0.20.4-bb.1](https://img.shields.io/badge/Version-0.20.4--bb.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.20.4](https://img.shields.io/badge/AppVersion-v0.20.4-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
 
 External secrets management for Kubernetes
 
@@ -106,8 +106,6 @@ helm install external-secrets chart/
 | clusterSecretStoreConfiguration.enabled | bool | `false` |  |
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].name | string | `""` |  |
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].namespace | string | `""` |  |
-| clusterSecretStoreConfiguration.clusterSecretStoreList[0].labels | string | `""` |  |
-| clusterSecretStoreConfiguration.clusterSecretStoreList[0].annotations | string | `""` |  |
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].source | object | `{"auth":{"accessKeyID":"","accessKeyName":"","authType":"","secretAccessKey":""},"provider":"aws","region":"us-gov-west-1","service":"SecretsManager"}` | define types of authentication: ## |
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].source.provider | string | `"aws"` | AWS secrets manager only - other services can be added later ## |
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].source.service | string | `"SecretsManager"` | Specify type of service, i.e., SecretsManager (default) ## |
@@ -117,16 +115,12 @@ helm install external-secrets chart/
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].source.auth.accessKeyID | string | `""` | Specify AWS Access Key ID file ## |
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].source.auth.secretAccessKey | string | `""` | Specify AWS Secret Access Key file ## |
 | externalSecretsConfiguration.enabled | bool | `false` |  |
+| externalSecretsConfiguration.refreshInterval | string | `"1m"` |  |
 | externalSecretsConfiguration.secretList[0].name | string | `""` |  |
 | externalSecretsConfiguration.secretList[0].namespace | string | `""` |  |
-| externalSecretsConfiguration.secretList[0].refreshInterval | string | `"1m"` |  |
 | externalSecretsConfiguration.secretList[0].secrets.targetName | string | `""` |  |
-| externalSecretsConfiguration.secretList[0].secrets.targetPolicy | string | `"Owner"` | target.creationPolicy default is Owner |
-| externalSecretsConfiguration.secretList[0].secrets.secretKeyName | object | `{"key":"","metadataPolicy":"","property":"","version":""}` | This name allows reference by other objects. |
-| externalSecretsConfiguration.secretList[0].secrets.secretKeyName.key | string | `""` | Specify key here |
-| externalSecretsConfiguration.secretList[0].secrets.secretKeyName.version | string | `""` | Key version |
-| externalSecretsConfiguration.secretList[0].secrets.secretKeyName.property | string | `""` | Specify the property of the secret, i.e. username, password |
-| externalSecretsConfiguration.secretList[0].secrets.secretKeyName.metadataPolicy | string | `""` | Optional" metadataPolicy for ExternalSecret, i.e. Fetch |
+| externalSecretsConfiguration.secretList[0].secrets.targetPolicy | string | `"Owner"` |  |
+| externalSecretsConfiguration.secretList[0].secrets.secretKeyName | object | `{"key":"","metadataPolicy":"","property":"","version":""}` | Use this simplified block if only pulling a single key/property from the external secret |
 | upstream | object | Upstream chart values           | Values to pass to [the upstream external-secrets chart](https://github.com/external-secrets/external-secrets/blob/main/deploy/charts/external-secrets/values.yaml) |
 | upstream.image.tag | string | `"v0.20.4"` | The image tag to use. The default is the chart appVersion. |
 
