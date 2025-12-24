@@ -139,26 +139,24 @@ externalSecretsConfiguration:
         targetName: ""   # -- Name of the resulting Kubernetes Secret created by ExternalSecret
         targetPolicy: "Owner" # -- Target creation policy: "Owner", "Merge", or "None". Default is "Owner"
 
-        # -- Use this simplified block if only pulling a single key/property from the external secret
-        secretKeyName:
-          key: ""      # -- External secret key path
-          version: ""       # -- (Optional) Version of the secret
-          property: ""   # -- Specific property to extract from the secret (e.g., "username", "password")
-          metadataPolicy: "" # -- (Optional) Metadata policy, e.g., "Fetch", to control sync behavior
-
-        # # -- Optional: Use this block if retrieving multiple key-value pairs from the same external secret
-        # data:
-        #   - secretKey: roger   # -- Key name to store in the resulting Kubernetes Secret
-        #     remoteRef:  
-        #       key: team-list      # -- External secret key path
-        #       property: name-1 # -- Specific property to extract from the secret (e.g., "username", "password")
-        #       version: ""   # -- (Optional) Version of the secret
+        # -- : Use this block if retrieving multiple key-value pairs from the same external secret
+        data:
+          - secretKey: roger   # -- Key name to store in the resulting Kubernetes Secret
+            remoteRef:  
+              key: team-list      # -- External secret key path
+              property: name-1 # -- Specific property to extract from the secret (e.g., "username", "password")
+              version: ""   # -- (Optional) Version of the secret
               
-        #   - secretKey: engineers  # -- Another secret key to extract and store
-        #     remoteRef:  
-        #       key: team-list       # -- External secret key path (e.g., AWS Secrets Manager or SSM parameter path)
-        #       property: key-3 # -- Property to extract from the remote secret
-        #       version: ""   # -- (Optional) Version of the secret
+          - secretKey: engineers  # -- Another secret key to extract and store
+            remoteRef:  
+              key: team-list       # -- External secret key path (e.g., AWS Secrets Manager or SSM parameter path)
+              property: key-3 # -- Property to extract from the remote secret
+              version: ""   # -- (Optional) Version of the secret
+              
+        # -- Use this block to extract all keys from external-secrets
+        dataFrom:
+          - extract: 
+              key: team-list      
           
 # -- Values to pass to [the upstream external-secrets chart](https://github.com/external-secrets/external-secrets/blob/main/deploy/charts/external-secrets/values.yaml)
 # @default -- Upstream chart values          
