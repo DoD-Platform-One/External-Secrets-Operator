@@ -4,6 +4,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [0.20.4-bb.3] - 2026-01-06
+
+### Updated
+
+- Commented out example values for externalSecret configuration.
+
 ## [0.20.4-bb.2] - 2025-12-23
 
 ### Updated
