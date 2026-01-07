@@ -1,29 +1,5 @@
 domain: bigbang.dev
 
-rbac:
-  create: true
-  servicebindings:
-    create: true
-  aggregateToView: true
-  aggregateToEdit: true
- 
-serviceAccount:
-  # -- Specifies whether a service account should be created.
-  create: true
-  # -- Automounts the service account token in all containers of the pod
-  automount: true
-  # -- Annotations to add to the service account.
-  annotations: {}
-  # -- Extra Labels to add to the service account.
-  extraLabels: {}
-  # -- The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template.
-  name: ""
-  
-scopedNamespace: ""
-
-scopedRBAC: false
-
 istio:
   enabled: false
   hardened:
@@ -163,9 +139,10 @@ externalSecretsConfiguration:
 
 upstream:
   
-  nameOverride: "external-secrets"
-  fullnameOverride: "external-secrets"
-  namespaceOverride: "external-secrets"
+  nameOverride: external-secrets
+  fullnameOverride: external-secrets
+  namespaceOverride: external-secrets
+  
   installCRDs: false
   
   deploymentAnnotations: {}
@@ -173,8 +150,45 @@ upstream:
   webhook: 
     create: false
   
+  serviceAccount:
+    # -- Specifies whether a service account should be created.
+    create: true
+    # -- Automounts the service account token in all containers of the pod
+    automount: true
+    # -- Annotations to add to the service account.
+    annotations: {}
+    # -- Extra Labels to add to the service account.
+    extraLabels: {}
+    # -- The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template.
+    name: ""
+
   rbac:
-    create: false
+    # -- Specifies whether role and rolebinding resources should be created.
+    create: true
+    servicebindings:
+      # -- Specifies whether a clusterrole to give servicebindings read access should be created.
+      create: true
+    # -- Specifies whether permissions are aggregated to the view ClusterRole
+    aggregateToView: true
+    # -- Specifies whether permissions are aggregated to the edit ClusterRole
+    aggregateToEdit: true
+    
+  scopedNamespace: ""
+  scopedRBAC: false  
+  
+  # -- Specifies the number of concurrent ExternalSecret Reconciles external-secret executes at
+  # a time.
+  concurrent: 1
+  # -- Specifies Log Params to the External Secrets Operator
+  log:
+    level: info
+    timeEncoding: epoch
+  service:
+    # -- Set the ip family policy to configure dual-stack see [Configure dual-stack](https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services)
+    ipFamilyPolicy: ""
+    # -- Sets the families that should be supported and the order in which they should be applied to ClusterIP as well. Can be IPv4 and/or IPv6.
+    ipFamilies: [] 
 
   certController:
     create: false
