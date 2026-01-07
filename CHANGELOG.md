@@ -4,6 +4,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [0.20.4-bb.4] - 2026-01-07
+
+### Updated
+
+- Moved rbac and serviceAccount values under upstream
+
 ## [0.20.4-bb.3] - 2026-01-06
 
 ### Updated
