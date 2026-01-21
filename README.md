@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # external-secrets
 
-![Version: 0.20.4-bb.4](https://img.shields.io/badge/Version-0.20.4--bb.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.20.4](https://img.shields.io/badge/AppVersion-v0.20.4-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
+![Version: 0.20.4-bb.5](https://img.shields.io/badge/Version-0.20.4--bb.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.20.4](https://img.shields.io/badge/AppVersion-v0.20.4-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
 
 External secrets management for Kubernetes
 
@@ -110,19 +110,6 @@ helm install external-secrets chart/
 | externalSecretsConfiguration.secretList[0].secrets.targetName | string | `""` |  |
 | externalSecretsConfiguration.secretList[0].secrets.targetPolicy | string | `"Owner"` |  |
 | upstream | object | Upstream chart values           | Values to pass to [the upstream external-secrets chart](https://github.com/external-secrets/external-secrets/blob/main/deploy/charts/external-secrets/values.yaml) |
-| upstream.serviceAccount.create | bool | `true` | Specifies whether a service account should be created. |
-| upstream.serviceAccount.automount | bool | `true` | Automounts the service account token in all containers of the pod |
-| upstream.serviceAccount.annotations | object | `{}` | Annotations to add to the service account. |
-| upstream.serviceAccount.extraLabels | object | `{}` | Extra Labels to add to the service account. |
-| upstream.serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
-| upstream.rbac.create | bool | `true` | Specifies whether role and rolebinding resources should be created. |
-| upstream.rbac.servicebindings.create | bool | `true` | Specifies whether a clusterrole to give servicebindings read access should be created. |
-| upstream.rbac.aggregateToView | bool | `true` | Specifies whether permissions are aggregated to the view ClusterRole |
-| upstream.rbac.aggregateToEdit | bool | `true` | Specifies whether permissions are aggregated to the edit ClusterRole |
-| upstream.concurrent | int | `1` | Specifies the number of concurrent ExternalSecret Reconciles external-secret executes at a time. |
-| upstream.log | object | `{"level":"info","timeEncoding":"epoch"}` | Specifies Log Params to the External Secrets Operator |
-| upstream.service.ipFamilyPolicy | string | `""` | Set the ip family policy to configure dual-stack see [Configure dual-stack](https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services) |
-| upstream.service.ipFamilies | list | `[]` | Sets the families that should be supported and the order in which they should be applied to ClusterIP as well. Can be IPv4 and/or IPv6. |
 | upstream.image.tag | string | `"v0.20.4"` | The image tag to use. The default is the chart appVersion. |
 
 ## Contributing

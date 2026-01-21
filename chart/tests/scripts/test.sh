@@ -2,10 +2,17 @@
 set -euo pipefail
 
 namespace=${EXTERNAL_SECRETS_NAMESPACE:-external-secrets}
-label_selector="app.kubernetes.io/name=external-secrets"
+TIMEOUT=180
+INTERVAL=5
 
-echo "[INFO] Locating external-secrets in namespace: $namespace..."
-pod=$(kubectl get pods -n "$namespace" -l "$label_selector" -o jsonpath="{.items[0].metadata.name}" || true)
+echo "[INFO] Checking for running External-secrets pod in namespace: $namespace..."
+end=$((SECONDS + TIMEOUT))
+while [ $SECONDS -lt $end ]; do
+  if kubectl get pods -n "$namespace" --field-selector=status.phase=Running --no-headers 2>/dev/null | grep -q .; then
+    echo "[SUCCESS] ESO pod is running"
+    exit 0
+  fi 
+pod=$(kubectl get pods -n "$namespace" || true)
 
 
 if [[ -z "$pod" ]]; then
@@ -43,5 +50,6 @@ for attempt in $(seq 1 $max_retries); do
   sleep "$retry_interval"
 done
     
-echo "[ERROR] Secret '$secret_name' not found.
+echo "[ERROR] Secret '$secret_name' not found."
 exit 1
+done
