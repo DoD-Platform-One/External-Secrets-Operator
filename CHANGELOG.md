@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.2.1-bb.0] - 2026-01-21
+
+### Updated
+
+- Updated gluon 0.9.6 -> 0.9.7
+- Updated registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets 0.20.4 -> 1.2.1
+- Updated registry1.dso.mil/ironbank/opensource/kubernetes/kubectl v1.33 -> v1.34
+
 ## [0.20.4-bb.5] - 2026-01-13
 
 ### Changed

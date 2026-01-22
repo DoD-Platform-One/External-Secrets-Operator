@@ -2,8 +2,8 @@ apiVersion: v2
 name: external-secrets
 description: External secrets management for Kubernetes
 type: application
-version: "0.20.4-bb.5"
-appVersion: "v0.20.4"
+version: "1.2.1-bb.0"
+appVersion: "v1.2.1"
 kubeVersion: ">= 1.19.0-0"
 keywords:
   - kubernetes-external-secrets
@@ -15,20 +15,20 @@ maintainers:
     email: kellinmcavoy@gmail.com
 dependencies:
   - name: gluon
-    version: "0.9.6"
+    version: "0.9.7"
     repository: "oci://registry1.dso.mil/bigbang"
   - name: external-secrets
-    version: "0.20.4"
+    version: "1.2.1"
     repository: https://charts.external-secrets.io
     alias: upstream
 annotations:
   bigbang.dev/maintenanceTrack: bb_integrated
   bigbang.dev/applicationVersions: |
-    - External Secrets: 0.20.4
+    - External Secrets: 1.2.1
   helm.sh/images: |
     - name: external-secrets
-      image: registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets:v0.20.4
+      image: registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets:v1.2.1
     - name: kubectl
-      image: registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.33
+      image: registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.34
       condition: waitJob.enabled
       
