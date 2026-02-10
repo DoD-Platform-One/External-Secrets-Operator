@@ -11,11 +11,16 @@
     "external-secrets",
     "renovate"
   ],
-  "commitMessagePrefix": "SKIP UPDATE CHECK",
   "postUpdateOptions": [
     "helmUpdateSubChartArchives"
   ],
   "packageRules": [
+    {
+      "matchManagers": ["helm", "regex"],
+      "matchFileNames": ["chart/Chart.yaml", "chart/values.yaml"],
+      "groupName": "External Secrets chart: subcharts + images",
+      "groupSlug": "external-secrets-chart-all"
+    },
     {
       "matchDatasources": [
         "docker"
@@ -29,7 +34,6 @@
       "allowedVersions": "!/8.4/"
     }
   ],
-  "separateMajorMinor": false,
   "customManagers": [
     {
       "customType": "regex",
