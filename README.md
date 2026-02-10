@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # external-secrets
 
-![Version: 1.2.1-bb.0](https://img.shields.io/badge/Version-1.2.1--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.2.1](https://img.shields.io/badge/AppVersion-v1.2.1-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
+![Version: 1.3.1-bb.0](https://img.shields.io/badge/Version-1.3.1--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.1](https://img.shields.io/badge/AppVersion-v1.3.1-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
 
 External secrets management for Kubernetes
 
@@ -50,7 +50,6 @@ helm install external-secrets chart/
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| domain | string | `"bigbang.dev"` |  |
 | istio.enabled | bool | `false` |  |
 | istio.hardened.enabled | bool | `false` |  |
 | istio.hardened.outboundTrafficPolicyMode | string | `"REGISTRY_ONLY"` |  |
@@ -110,7 +109,7 @@ helm install external-secrets chart/
 | externalSecretsConfiguration.secretList[0].secrets.targetName | string | `""` |  |
 | externalSecretsConfiguration.secretList[0].secrets.targetPolicy | string | `"Owner"` |  |
 | upstream | object | Upstream chart values           | Values to pass to [the upstream external-secrets chart](https://github.com/external-secrets/external-secrets/blob/main/deploy/charts/external-secrets/values.yaml) |
-| upstream.image.tag | string | `"v1.2.1"` | The image tag to use. The default is the chart appVersion. |
+| upstream.image.tag | string | `"v1.3.1"` | The image tag to use. The default is the chart appVersion. |
 
 ## Contributing
 

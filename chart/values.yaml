@@ -1,5 +1,3 @@
-domain: bigbang.dev
-
 istio:
   enabled: false
   hardened:
@@ -163,7 +161,7 @@ upstream:
     repository: registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets
     pullPolicy: IfNotPresent
     # -- The image tag to use. The default is the chart appVersion.
-    tag: "v1.2.1"
+    tag: "v1.3.1"
   
   imagePullSecrets:
   - name: private-registry

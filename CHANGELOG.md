@@ -4,6 +4,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.3.1-bb.0] - 2026-01-30
+
+### Updated
+
+- Updated registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets 1.2.1 -> 1.3.1
+- Updated chart https://charts.external-secrets.io 1.2.1 -> 1.3.1
+
 ## [1.2.1-bb.0] - 2026-01-21
 
 ### Updated

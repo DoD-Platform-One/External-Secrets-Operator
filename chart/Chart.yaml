@@ -2,8 +2,8 @@ apiVersion: v2
 name: external-secrets
 description: External secrets management for Kubernetes
 type: application
-version: "1.2.1-bb.0"
-appVersion: "v1.2.1"
+version: "1.3.1-bb.0"
+appVersion: "v1.3.1"
 kubeVersion: ">= 1.19.0-0"
 keywords:
   - kubernetes-external-secrets
@@ -18,16 +18,16 @@ dependencies:
     version: "0.9.7"
     repository: "oci://registry1.dso.mil/bigbang"
   - name: external-secrets
-    version: "1.2.1"
+    version: "1.3.1"
     repository: https://charts.external-secrets.io
     alias: upstream
 annotations:
   bigbang.dev/maintenanceTrack: bb_integrated
   bigbang.dev/applicationVersions: |
-    - External Secrets: 1.2.1
+    - External Secrets: 1.3.1
   helm.sh/images: |
     - name: external-secrets
-      image: registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets:v1.2.1
+      image: registry1.dso.mil/ironbank/opensource/external-secrets/external-secrets:v1.3.1
     - name: kubectl
       image: registry1.dso.mil/ironbank/opensource/kubernetes/kubectl:v1.34
       condition: waitJob.enabled
