@@ -86,22 +86,49 @@ clusterSecretStoreConfiguration:
       # labels: ""
       # annotations: ""
       # -- define types of authentication: ##
-      source: 
-        # -- AWS secrets manager only - other services can be added later ##
-        provider: aws 
+      source:
+        # -- Supported providers: aws, vault ##
+        provider: aws
         # -- Specify type of service, i.e., SecretsManager (default) ##
-        service: SecretsManager 
+        service: SecretsManager
         # -- Specify AWS region, i.e. us-gov-west-1 (default) ##
         region: "us-gov-west-1"
         auth:
           # -- Specify authType is required: identity, accesskey or serviceaccount ##
-          authType: ""  
+          authType: ""
           # -- Name of the accessKeyID and secretAccessKey pair ##
-          accessKeyName: "" 
+          accessKeyName: ""
           # -- Specify AWS Access Key ID file ##
           accessKeyID: ""
           # -- Specify AWS Secret Access Key file ##
           secretAccessKey: ""
+    # -- Example: Vault ClusterSecretStore configuration
+    # - name: "vault-secrets"
+    #   namespace: ""
+    #   source:
+    #     provider: vault
+    #     # -- Vault server URL
+    #     server: "https://vault.example.com:8200"
+    #     # -- Vault secrets engine path
+    #     path: "kv"
+    #     # -- Vault secrets engine version (v1 or v2)
+    #     version: "v2"
+    #     auth:
+    #       # -- Auth type: token or kubernetes
+    #       type: token
+    #       # -- Secret containing the Vault token
+    #       secretName: "vault-token"
+    #       # -- Namespace where the token secret resides
+    #       namespace: "external-secrets"
+    #       # -- Key within the secret
+    #       key: "token"
+    #       ## Kubernetes auth example:
+    #       # type: kubernetes
+    #       # mountPath: "kubernetes"
+    #       # role: "eso-role"
+    #       # serviceAccountRef:
+    #       #   name: ""
+    #       #   namespace: ""
 
 externalSecretsConfiguration:
   enabled: false  # -- Enable or disable ExternalSecrets generation
@@ -141,9 +168,14 @@ upstream:
   fullnameOverride: external-secrets
   namespaceOverride: external-secrets
 
+  # -- Pod labels applied to ESO pods. vault-ingress=true allows traffic through
+  # Vault's default ingress NetworkPolicy (allow-ingress-to-vault-port-8200-from-custom-app-ingress)
+  podLabels:
+    vault-ingress: "true"
+
   installCRDs: false
-  
-  webhook: 
+
+  webhook:
     create: false
   
   certController:

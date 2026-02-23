@@ -1,7 +1,7 @@
 <!-- Warning: Do not manually edit this file. See notes on gluon + helm-docs at the end of this file for more information. -->
 # external-secrets
 
-![Version: 1.3.1-bb.0](https://img.shields.io/badge/Version-1.3.1--bb.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.1](https://img.shields.io/badge/AppVersion-v1.3.1-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
+![Version: 1.3.1-bb.1](https://img.shields.io/badge/Version-1.3.1--bb.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.1](https://img.shields.io/badge/AppVersion-v1.3.1-informational?style=flat-square) ![Maintenance Track: bb_integrated](https://img.shields.io/badge/Maintenance_Track-bb_integrated-green?style=flat-square)
 
 External secrets management for Kubernetes
 
@@ -95,7 +95,7 @@ helm install external-secrets chart/
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].name | string | `""` |  |
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].namespace | string | `""` |  |
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].source | object | `{"auth":{"accessKeyID":"","accessKeyName":"","authType":"","secretAccessKey":""},"provider":"aws","region":"us-gov-west-1","service":"SecretsManager"}` | define types of authentication: ## |
-| clusterSecretStoreConfiguration.clusterSecretStoreList[0].source.provider | string | `"aws"` | AWS secrets manager only - other services can be added later ## |
+| clusterSecretStoreConfiguration.clusterSecretStoreList[0].source.provider | string | `"aws"` | Supported providers: aws, vault ## |
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].source.service | string | `"SecretsManager"` | Specify type of service, i.e., SecretsManager (default) ## |
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].source.region | string | `"us-gov-west-1"` | Specify AWS region, i.e. us-gov-west-1 (default) ## |
 | clusterSecretStoreConfiguration.clusterSecretStoreList[0].source.auth.authType | string | `""` | Specify authType is required: identity, accesskey or serviceaccount ## |
@@ -109,6 +109,7 @@ helm install external-secrets chart/
 | externalSecretsConfiguration.secretList[0].secrets.targetName | string | `""` |  |
 | externalSecretsConfiguration.secretList[0].secrets.targetPolicy | string | `"Owner"` |  |
 | upstream | object | Upstream chart values           | Values to pass to [the upstream external-secrets chart](https://github.com/external-secrets/external-secrets/blob/main/deploy/charts/external-secrets/values.yaml) |
+| upstream.podLabels | object | `{"vault-ingress":"true"}` | Pod labels applied to ESO pods. vault-ingress=true allows traffic through Vault's default ingress NetworkPolicy (allow-ingress-to-vault-port-8200-from-custom-app-ingress) |
 | upstream.image.tag | string | `"v1.3.1"` | The image tag to use. The default is the chart appVersion. |
 
 ## Contributing
