@@ -4,6 +4,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.3.1-bb.1] - 2026-02-20
+
+### Added
+
+- Added Vault provider support for ClusterSecretStore (token and kubernetes auth)
+- Added network policy for Vault egress
+
 ## [1.3.1-bb.0] - 2026-01-30
 
 ### Updated
